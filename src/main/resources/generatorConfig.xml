@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+        <generatorConfiguration>
+    <context targetRuntime="MyBatis3" id="sportplay">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection password="888" userId="root"
+                        connectionURL="jdbc:mysql://localhost:3306/sportplay?serverTimezone=GMT%2B8"
+                        driverClass="com.mysql.jdbc.Driver">
+            <property value="true" name="nullCatalogMeansCurrent"/>
+        </jdbcConnection>
+        <javaTypeResolver>
+            <!-- This property is used to specify whether MyBatis Generator shouldforce the use of java.math.BigDecimal for DECIMAL and NUMERIC fields, -->
+            <property value="false" name="forceBigDecimals"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetProject="src/main/java" targetPackage="com.hwl.vue.been">
+            <property value="true" name="enableSubPackages"/>
+            <property value="true" name="trimStrings"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置 -->
+        <sqlMapGenerator targetProject="src/main/resources" targetPackage="mapper">
+            <property value="true" name="enableSubPackages"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetProject="src/main/java" targetPackage="com.hwl.vue.mapper">
+            <property value="true" name="enableSubPackages"/>
+        </javaClientGenerator>
+        <!-- 要生成哪些表 -->
+        <table domainObjectName="User" tableName="easyuser"/>
+    </context>
+</generatorConfiguration>
